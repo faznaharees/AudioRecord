@@ -13,7 +13,9 @@ export default class Recording extends Component {
             isRecording: false,
             blobURL: '',
             isBlocked: false,
-            answer:''
+            answer:'',
+            count:0,
+            timer:false
           }
     }
     componentDidMount(){
@@ -27,6 +29,7 @@ export default class Recording extends Component {
               this.setState({ isBlocked: true })
             },
           );
+          
     }
     start = (e) => {
         e.preventDefault();
@@ -36,9 +39,10 @@ export default class Recording extends Component {
           Mp3Recorder
             .start()
             .then(() => {
-              this.setState({ isRecording: true });
+              this.setState({ isRecording: true ,timer:true});
             }).catch((e) => console.error(e));
         }
+        this.doIntervalChange();
       };
       stop = (e) => {
           e.preventDefault();
@@ -47,7 +51,7 @@ export default class Recording extends Component {
           .getMp3()
           .then(([buffer, blob]) => {
             const blobURL = URL.createObjectURL(blob)
-            this.setState({ blobURL, isRecording: false });
+            this.setState({ blobURL, isRecording: false ,timer:false});
           }).catch((e) => console.log(e));
           console.log("Recording stopped")
       };
@@ -65,18 +69,26 @@ export default class Recording extends Component {
         })
         this.setState({
             a:'',
-            blobURL:''
+            blobURL:'',count:0
         })
       }
+      
+      doIntervalChange(){this.myInterval = setInterval(()=>{
+       
+        this.setState(prevState => ({
+            count: (this.state.timer) ? (prevState.count+1) : prevState.count
+        }))
+    },1000)}
+
     render() {
         let button;
         if(!this.state.isRecording)
-            button = <button onClick={this.start} className="greenbutton" />
+            button = <i onClick={this.start} className="material-icons green-text">mic</i>  
         else
-            button =  <button onClick={this.stop} className="redbutton" />    
+            button =  <i onClick={this.stop} className="material-icons red-text">mic</i>   
         return (
             <form>
-                    <input type="textarea" className="textarea" placeholder="Type your answer..." value={this.state.a} onChange={this.Change1}/>
+                    <textarea className="textarea" placeholder="Type your answer..." value={this.state.a} onChange={this.Change1}/>
                     <br/>
                     <div className="" style={{display:"flex",width:"350px"}}>
                     <audio src={this.state.blobURL} controls="controls" />
@@ -93,7 +105,7 @@ export default class Recording extends Component {
                    
                     <br/>
                     <div className="" style={{display:"flex",width:"350px"}}>
-                        <button onClick={this.handleSubmit} style={{marginLeft:"200px"}} className="submit">SUBMIT</button>
+                    Recorded {this.state.count}s  <button onClick={this.handleSubmit} style={{marginLeft:"230px"}} className="submit">SUBMIT</button>
                     </div>
             </form>
         )

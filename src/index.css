@@ -37,9 +37,9 @@ body {
   border-radius:50%;
   border:1px solid gray;
   margin:10px;
+  background:url(https://www.pngfind.com/pngs/m/389-3895200_oxygen480-actions-media-record-record-button-png-transparent.png);
 }
 .greenbutton {
-  background:green;
 }
 .redbutton{
   background: red;
