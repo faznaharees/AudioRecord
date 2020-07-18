@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/AudioRecord/static/css/main.2481c5c4.chunk.css",
+    "main.js": "/AudioRecord/static/js/main.b327c901.chunk.js",
+    "main.js.map": "/AudioRecord/static/js/main.b327c901.chunk.js.map",
+    "runtime-main.js": "/AudioRecord/static/js/runtime-main.4462c772.js",
+    "runtime-main.js.map": "/AudioRecord/static/js/runtime-main.4462c772.js.map",
+    "static/js/2.4631b654.chunk.js": "/AudioRecord/static/js/2.4631b654.chunk.js",
+    "static/js/2.4631b654.chunk.js.map": "/AudioRecord/static/js/2.4631b654.chunk.js.map",
+    "index.html": "/AudioRecord/index.html",
+    "precache-manifest.33ed13069b1a0d4a399243e781d866ef.js": "/AudioRecord/precache-manifest.33ed13069b1a0d4a399243e781d866ef.js",
+    "service-worker.js": "/AudioRecord/service-worker.js",
+    "static/css/main.2481c5c4.chunk.css.map": "/AudioRecord/static/css/main.2481c5c4.chunk.css.map",
+    "static/js/2.4631b654.chunk.js.LICENSE.txt": "/AudioRecord/static/js/2.4631b654.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.4462c772.js",
+    "static/js/2.4631b654.chunk.js",
+    "static/css/main.2481c5c4.chunk.css",
+    "static/js/main.b327c901.chunk.js"
+  ]
+}
